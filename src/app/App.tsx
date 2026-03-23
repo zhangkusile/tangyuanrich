@@ -164,7 +164,7 @@ function PetProfile({
 
   return (
     <div
-      className={`flex flex-col ${reversed ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-10 md:gap-16 py-16`}
+      className={`flex flex-col ${reversed ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-8 md:gap-16 py-10 md:py-16`}
     >
       <motion.div
         initial={{ opacity: 0, x: reversed ? 50 : -50 }}
@@ -174,15 +174,15 @@ function PetProfile({
         className="w-full md:w-1/2"
       >
         <div
-          className={`relative rounded-[3rem] p-4 ${themeColors.bg} ${themeColors.shadow} shadow-2xl transform rotate-${reversed ? "2" : "-2"} hover:rotate-0 transition-all duration-500`}
+          className={`relative rounded-[2rem] md:rounded-[3rem] p-3 md:p-4 ${themeColors.bg} ${themeColors.shadow} shadow-2xl transform rotate-${reversed ? "2" : "-2"} hover:rotate-0 transition-all duration-500`}
         >
-          <div className="absolute -top-6 -right-6 bg-white p-4 rounded-full shadow-lg z-10">
-            <Icon className={`w-8 h-8 ${themeColors.text}`} />
+          <div className="absolute -top-4 -right-4 md:-top-6 md:-right-6 bg-white p-3 md:p-4 rounded-full shadow-lg z-10">
+            <Icon className={`w-6 h-6 md:w-8 md:h-8 ${themeColors.text}`} />
           </div>
           <img
             src={image}
             alt={name}
-            className="w-full h-[400px] md:h-[500px] object-cover rounded-[2.5rem]"
+            className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover rounded-[2rem] md:rounded-[2.5rem]"
           />
         </div>
       </motion.div>
@@ -200,10 +200,10 @@ function PetProfile({
           >
             {breed}
           </h3>
-          <h2 className="text-5xl font-extrabold text-stone-800 mb-2 font-serif">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-stone-800 mb-2 font-serif">
             {name}
           </h2>
-          <p className="text-2xl text-stone-500 font-medium italic">
+          <p className="text-lg sm:text-xl md:text-2xl text-stone-500 font-medium italic">
             "{title}"
           </p>
         </div>
@@ -287,7 +287,7 @@ function FunFacts() {
   ];
 
   return (
-    <section className="py-24 bg-stone-50 px-6">
+    <section className="py-16 md:py-24 bg-stone-50 px-4 md:px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -295,15 +295,15 @@ function FunFacts() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-stone-800 mb-4 font-serif">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-stone-800 mb-4 font-serif">
             治愈瞬间
           </h2>
-          <p className="text-xl text-stone-500 max-w-2xl mx-auto">
+          <p className="text-base md:text-xl text-stone-500 max-w-2xl mx-auto">
             猫狗双全的快乐，都在这些鸡飞狗跳又温馨可爱的日常里。
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
           {stories.map((story, idx) => (
             <motion.div
               key={idx}
@@ -311,15 +311,15 @@ function FunFacts() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.2 }}
-              className="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1"
+              className="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-stone-100 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1"
             >
               <div className="w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center mb-6">
                 <story.icon className="w-7 h-7" />
               </div>
-              <h3 className="text-2xl font-bold text-stone-800 mb-4">
+              <h3 className="text-xl md:text-2xl font-bold text-stone-800 mb-3 md:mb-4">
                 {story.title}
               </h3>
-              <p className="text-stone-600 leading-relaxed text-lg">
+              <p className="text-stone-600 leading-relaxed text-base md:text-lg">
                 {story.content}
               </p>
             </motion.div>
@@ -332,24 +332,24 @@ function FunFacts() {
 
 function PhotoGallery() {
   return (
-    <section className="py-24 px-6 bg-white">
+    <section className="py-16 md:py-24 px-4 md:px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-stone-800 mb-4 font-serif">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-stone-800 mb-4 font-serif">
             照片墙
           </h2>
-          <p className="text-xl text-stone-500 max-w-2xl mx-auto">
+          <p className="text-base md:text-xl text-stone-500 max-w-2xl mx-auto">
             记录每一个可爱的瞬间
           </p>
           <div className="w-24 h-1 bg-orange-300 mx-auto rounded-full mt-4"></div>
         </motion.div>
 
-        <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+        <div className="columns-2 sm:columns-3 lg:columns-4 gap-3 md:gap-4 space-y-3 md:space-y-4">
           {GALLERY_PHOTOS.map((src, idx) => (
             <motion.div
               key={idx}
@@ -381,7 +381,7 @@ function Footer() {
   };
 
   return (
-    <footer className="bg-stone-900 text-stone-400 py-12 text-center px-6">
+    <footer className="bg-stone-900 text-stone-400 py-10 md:py-12 text-center px-4 md:px-6">
       <div className="max-w-4xl mx-auto">
         <div className="flex justify-center items-center space-x-4 mb-8 relative">
           <motion.button
@@ -405,19 +405,19 @@ function Footer() {
             </motion.div>
           )}
         </div>
-        <h2 className="text-3xl font-bold text-white mb-6 font-serif">
+        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6 font-serif">
           很高兴认识你！
         </h2>
-        <p className="mb-8 text-lg">
+        <p className="mb-6 md:mb-8 text-base md:text-lg">
           感谢你成为汤圆和Rich的互联网好朋友。
           <br />
           希望我们的日常能为你带来一点点温暖和笑容。
         </p>
-        <div className="inline-flex items-center justify-center space-x-2 bg-stone-800 px-6 py-3 rounded-full text-sm font-medium border border-stone-700">
+        <div className="inline-flex flex-col sm:flex-row items-center justify-center sm:space-x-2 bg-stone-800 px-5 md:px-6 py-3 rounded-full text-xs sm:text-sm font-medium border border-stone-700">
           <span>
             © {new Date().getFullYear()} 汤圆 & Rich 的小宇宙
           </span>
-          <span className="mx-2">|</span>
+          <span className="hidden sm:inline mx-2">|</span>
           <span>Made with love</span>
         </div>
       </div>
@@ -432,10 +432,10 @@ export default function App() {
 
       <section
         id="pets-section"
-        className="py-24 px-6 max-w-6xl mx-auto"
+        className="py-16 md:py-24 px-4 md:px-6 max-w-6xl mx-auto"
       >
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-stone-800 mb-4 font-serif">
+        <div className="text-center mb-12 md:mb-20">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-stone-800 mb-4 font-serif">
             认识两位小主角
           </h2>
           <div className="w-24 h-1 bg-orange-300 mx-auto rounded-full"></div>
