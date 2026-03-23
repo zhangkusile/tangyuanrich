@@ -39,6 +39,7 @@ import photo22 from "@/assets/4afa3ca850723433f7a5b8050fda8e60.jpg";
 import photo23 from "@/assets/b27e3bd45708f38e0cc0899f3783cc95.jpg";
 import photo24 from "@/assets/86a9ca0b6684b929aee5b1cfca20e4f0.jpg";
 import photo25 from "@/assets/e45330f3e88ba23c2e84a90b3b098389.jpg";
+import MusicPlayer from "./components/MusicPlayer";
 
 const TANGYUAN_IMG = tangyuanImage;
 const RICH_IMG = richImage;
@@ -428,6 +429,7 @@ function Footer() {
 export default function App() {
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-orange-200 selection:text-orange-900">
+      <MusicPlayer />
       <Hero />
 
       <section
