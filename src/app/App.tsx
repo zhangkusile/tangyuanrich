@@ -14,10 +14,43 @@ import {
 import coverImage from "@/assets/5f2d797d19bb8adf9ac47b1247b4932f29bc7dd3.png";
 import tangyuanImage from "@/assets/tangyuan.jpg";
 import richImage from "@/assets/rich.jpg";
+import photo01 from "@/assets/331a3069fe28f00f88921a02ab5ee875.jpg";
+import photo02 from "@/assets/48c46acd491106e52a57aeedb5cbd9ec.jpg";
+import photo03 from "@/assets/c9208f26f0b2a3a8c46b7cbc8979c551.jpg";
+import photo04 from "@/assets/ef7d1b36acc442cffcad8f69335f963f.jpg";
+import photo05 from "@/assets/f2325b7c82d867f30f168b7cfa4dc304.jpg";
+import photo06 from "@/assets/604d56e4d834afc2813def694aae5f3c.jpg";
+import photo07 from "@/assets/cdd152643157812a80d676d7ae98bca9.jpg";
+import photo08 from "@/assets/d7b1b0ed00a00af6cffcb15325a4d353.jpg";
+import photo09 from "@/assets/8871272ee34479df1e7c86acde35a586.jpg";
+import photo10 from "@/assets/aded5afddae09daa99ef226c67025be8.jpg";
+import photo11 from "@/assets/2606ca93e33ff6e255caa2a1439cb5f1.jpg";
+import photo12 from "@/assets/f191a89994bbfacb991ac26a71fd76d8.jpg";
+import photo13 from "@/assets/1b96bc772a724e2ec4f8aa8e8c2b1b05.jpg";
+import photo14 from "@/assets/b2ead7d3bd10dea7ded999b8e46d1d1e.jpg";
+import photo15 from "@/assets/5ee0f223431f959953a83e43dfd8ebb1.jpg";
+import photo16 from "@/assets/8d10dffeb2b440c5c779cfc46e3ffdb4.jpg";
+import photo17 from "@/assets/06ed7d4269729a7cc9beb2ee5db8e79e.jpg";
+import photo18 from "@/assets/53d15f7a1bc02a6a2ba8d5f6b8f68c7a.jpg";
+import photo19 from "@/assets/72f93e35715b232197feed8d5d33367c.jpg";
+import photo20 from "@/assets/b3abdb66e87f194edd668ed4c1e9bac3.jpg";
+import photo21 from "@/assets/553d34f66553a1ed08e4b26fb3f39766.jpg";
+import photo22 from "@/assets/4afa3ca850723433f7a5b8050fda8e60.jpg";
+import photo23 from "@/assets/b27e3bd45708f38e0cc0899f3783cc95.jpg";
+import photo24 from "@/assets/86a9ca0b6684b929aee5b1cfca20e4f0.jpg";
+import photo25 from "@/assets/e45330f3e88ba23c2e84a90b3b098389.jpg";
 
 const TANGYUAN_IMG = tangyuanImage;
 const RICH_IMG = richImage;
 const COVER_IMG = coverImage;
+
+const GALLERY_PHOTOS = [
+  photo03, photo04, photo06, photo02, photo17,
+  photo01, photo07, photo25, photo09, photo05,
+  photo08, photo21, photo13, photo10, photo23,
+  photo14, photo24, photo11, photo15, photo12,
+  photo16, photo22, photo19, photo18, photo20,
+];
 
 function Hero() {
   const scrollToPets = () => {
@@ -297,12 +330,80 @@ function FunFacts() {
   );
 }
 
+function PhotoGallery() {
+  return (
+    <section className="py-24 px-6 bg-white">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-extrabold text-stone-800 mb-4 font-serif">
+            照片墙
+          </h2>
+          <p className="text-xl text-stone-500 max-w-2xl mx-auto">
+            记录每一个可爱的瞬间
+          </p>
+          <div className="w-24 h-1 bg-orange-300 mx-auto rounded-full mt-4"></div>
+        </motion.div>
+
+        <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+          {GALLERY_PHOTOS.map((src, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: (idx % 8) * 0.05, duration: 0.4 }}
+              className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300"
+            >
+              <img
+                src={src}
+                alt=""
+                className="w-full h-auto object-cover transition-transform duration-500 hover:scale-110"
+              />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
+  const [wink, setWink] = React.useState<"none" | "cat" | "dog">("none");
+
+  const handleHeartClick = () => {
+    setWink((prev) => (prev === "none" || prev === "dog" ? "cat" : "dog"));
+    setTimeout(() => setWink("none"), 2000);
+  };
+
   return (
     <footer className="bg-stone-900 text-stone-400 py-12 text-center px-6">
       <div className="max-w-4xl mx-auto">
-        <div className="flex justify-center space-x-4 mb-8">
-          <Heart className="w-8 h-8 text-red-500 animate-pulse" />
+        <div className="flex justify-center items-center space-x-4 mb-8 relative">
+          <motion.button
+            onClick={handleHeartClick}
+            whileTap={{ scale: 1.4 }}
+            className="relative cursor-pointer"
+          >
+            <Heart className="w-8 h-8 text-red-500 animate-pulse" />
+          </motion.button>
+
+          {wink !== "none" && (
+            <motion.div
+              initial={{ opacity: 0, y: 10, scale: 0.5 }}
+              animate={{ opacity: 1, y: -40, scale: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none"
+            >
+              <span className="text-4xl">
+                {wink === "cat" ? "😺" : "🐶"}
+              </span>
+            </motion.div>
+          )}
         </div>
         <h2 className="text-3xl font-bold text-white mb-6 font-serif">
           很高兴认识你！
@@ -384,6 +485,8 @@ export default function App() {
       </section>
 
       <FunFacts />
+
+      <PhotoGallery />
 
       <Footer />
     </div>
