@@ -39,6 +39,18 @@ import photo22 from "@/assets/4afa3ca850723433f7a5b8050fda8e60.jpg";
 import photo23 from "@/assets/b27e3bd45708f38e0cc0899f3783cc95.jpg";
 import photo24 from "@/assets/86a9ca0b6684b929aee5b1cfca20e4f0.jpg";
 import photo25 from "@/assets/e45330f3e88ba23c2e84a90b3b098389.jpg";
+import photo26 from "@/assets/微信图片_20260414112157_186_157.jpg";
+import photo27 from "@/assets/微信图片_20260414112414_187_157.jpg";
+import photo28 from "@/assets/微信图片_20260414112415_188_157.jpg";
+import photo29 from "@/assets/微信图片_20260414112418_189_157.jpg";
+import photo30 from "@/assets/微信图片_20260414112423_190_157.jpg";
+import photo31 from "@/assets/微信图片_20260414112426_191_157.jpg";
+import photo32 from "@/assets/微信图片_20260414112428_192_157.jpg";
+import photo33 from "@/assets/微信图片_20260414112429_193_157.jpg";
+import photo34 from "@/assets/微信图片_20260414112432_194_157.jpg";
+import photo35 from "@/assets/微信图片_20260414112449_195_157.jpg";
+import photo36 from "@/assets/微信图片_20260414112451_196_157.jpg";
+import photo37 from "@/assets/微信图片_20260414112452_197_157.jpg";
 import MusicPlayer from "./components/MusicPlayer";
 
 const TANGYUAN_IMG = tangyuanImage;
@@ -51,6 +63,9 @@ const GALLERY_PHOTOS = [
   photo08, photo21, photo13, photo10, photo23,
   photo14, photo24, photo11, photo15, photo12,
   photo16, photo22, photo19, photo18, photo20,
+  photo26, photo27, photo28, photo29, photo30,
+  photo31, photo32, photo33, photo34, photo35,
+  photo36, photo37,
 ];
 
 function Hero() {
